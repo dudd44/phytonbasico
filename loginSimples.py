@@ -1,17 +1,24 @@
 while True:
-    usuario = input("Digite seu nome de usuário: ").strip()
-    senha = input("Digite sua senha: ")
+    try:
+        usuario = input("Digite seu nome de usuário: ").strip()
+        senha = input("Digite sua senha: ")
 
-    if usuario ==" ":
+        if usuario == "":
+            print("O nome de usuário não pode ser vazio. ")
+            continue
+
+        elif len(senha) == "":
+            print("A senha não pode ser vazia. ")
+
+        if len(senha) < 6 :
+            print("A senha deve conter mais de seis caracteres.")
+
+        else:
+            break
+
+    except ValueError:
         print("O nome de usuário não pode ser vazio. ")
-
-    if senha ==" ":
         print("A senha não pode ser vazia. ")
-
-    elif senha <=6:
-        print("A senha deve conter mais de seis caracteres.")
-    else:
-        break
 
 print("Usuário: ", usuario)
 print("Senha: ", senha)
