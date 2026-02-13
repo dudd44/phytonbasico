@@ -10,10 +10,10 @@ while True:
             continue
 
         else:
-            print("Saque comcluído ")
+            print("Valor aceito! ")
             break
             
     except ValueError:
-        print("Digite apenas números.")
+        print("Digite apenas números inteiros.")
 
 print("Saque concluído: ", saque) 
