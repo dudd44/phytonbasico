@@ -30,4 +30,4 @@ for rodada in range(1, total_tentativas +1):
         elif(menor):
             print("******O seu chute foi menor que o número secreto******")
 
-print("Fim de jogo!")
+print("Fim de jogo!") 
