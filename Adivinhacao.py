@@ -3,9 +3,21 @@ print('********************')
 print('**Jogo adivinhação**')
 print('********************')
 
+print('1 - FÁCIL')
+print('2 - MÉDIO')
+print('3 - DIFÍCIL')
+
+opcao = int(input("Escolha uma opção: "))
+
+print("Você escolhe a opção: " , opcao)
+if (opcao ==1):
+    total_tentativas = 15
+elif (opcao ==2):
+    total_tentativas = 10
+elif (opcao ==3):
+    total_tentativas = 5
+
 numero_secreto = random.randrange(1,50)
-total_tentativas = 10
-rodada = 1
 
 for rodada in range(1, total_tentativas +1):
     print("Tentativas {} de {}".format(rodada,total_tentativas))
