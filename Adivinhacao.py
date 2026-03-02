@@ -1,4 +1,5 @@
 import random
+
 print('********************')
 print('**Jogo adivinhação**')
 print('********************')
