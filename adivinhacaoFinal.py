@@ -18,34 +18,34 @@ def escolher_nivel():
         if not nivel_str.isdigit():
             print(VERMELHO+"Digite apenas números!"+ RESET)
             continue
-        nivel_str = int(nivel_str)
+        nivel = int(nivel_str)
         if nivel == 1:
             return 10 
-        elif nivel == 2 
+        elif nivel == 2:
             return 5
-        elif nivel == 3
+        elif nivel == 3:
             return 3
         else:
             print(AMARELO+"Escolha apenas 1, 2 ou 3 "+RESET)
 
 
 def jogar ():
+    print(AZUL+'********************'+RESET)
+    print(AZUL+'**Jogo adivinhação**'+RESET)
+    print(AZUL+'********************'+RESET)
+    total_tentativas = escolher_nivel()
+    numero_secreto = random.randrange(1,31)
+    pontos = 100
+    historico = []
 
-        print(AZUL+'********************'+RESET)
-        print(AZUL+'**Jogo adivinhação**'+RESET)
-        print(AZUL+'********************'+RESET)
-        total_tentativas = escolher_nivel()
-        numero_secreto = random.randrange(1,31)
-        pontos = 100
-        historico = []
+    for rodada in range(1, total_tentativas +1):
+        #print("Tentativas {rodada} de {total_tentativas}".format(rodada,total_tentativas))
 
-        for rodada in range(1, total_tentativas +1):
-            print("Tentativas {rodada} de {total_tentativas}".format(rodada,total_tentativas))
-            chute_str = input("Digite um número entre 1 e 100: ")
+        chute_str = input("Digite um número entre 1 e 100: ")
 
-            if not chute_str.isdigit();
-                print(VERMELHO+"Digite apenas números entre 1 e 100: "+RESET)
-
+        if not chute_str.isdigit():
+            print(VERMELHO+"Digite apenas números entre 1 e 100: "+RESET)
+            continue
         
         chute = int(chute_str)
 
@@ -53,13 +53,32 @@ def jogar ():
             print(AMARELO+"Você deve digitar um número entre 1 e 100!"+RESET)
             continue
         historico.append(chute)
-        
+
+        if chute == numero_secreto:
+            print(VERDE+"\n Você acertou!"+RESET)
+            print(VERDE+ f" Sua pontuação foi: {pontos} pontos"+RESET)
+            break
+        else:
+            pontos -=20
+            if chute > numero_secreto:
+                print(VERMELHO+"O número secreto é maior "+RESET)
+            else: 
+                 print(VERMELHO+"O número secreto é menor "+RESET)
+    else:
+        print(VERMELHO+ f"\n Você perdeu! o número secreto era {numero_secreto}"+RESET)
+    print(AZUL+"\n Histórico de tentativas: "+RESET, historico)
 
 
-        acertou = chute == numero_secreto 
-        maior = chute > numero_secreto
-        menor = chute < numero_secreto
+while True:
+     jogar()
+     repetir = input("\n Deseja jogar novamente? (s/n)").lower()
+
+     if repetir != "s":
+          print(AZUL+"\n Obrigada por jogar! "+RESET)
+          break
+
         
+
 
 
 
